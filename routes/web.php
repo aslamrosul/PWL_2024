@@ -47,13 +47,17 @@ Route::get('/user/{name?}', function ($name='John') {
 
 Route::resource('photos', PhotoController::class);
 
-Route::resource('photo');
+
 
 Route::resource('photos', PhotoController::class) -> only([
     'index','show']);
 
 Route::resource('photos', PhotoController::class) -> except([
     'create','store','destroy']);
+
+
+Route::get('/greeting', [WelcomeController::class, 
+'greeting']);
 
 
 
